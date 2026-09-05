@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "visualizer",
+  "version": "${version}",
+  "name": "Visualizer",
+  "description": "Modern visual UI layer for Minecraft: interface, HUD, themes, animations and UI sounds. Gameplay is never touched.",
+  "authors": [
+    "Vizor"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/visualizer/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.visualizer.client.VisualizerClient"
+    ]
+  },
+  "mixins": [
+    "visualizer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "minecraft": "~1.16.5",
+    "java": ">=8",
+    "fabric": "*"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "hover": {
+    "subtitle": "visualizer.subtitle.hover",
+    "sounds": [
+      "visualizer:hover.wav"
+    ]
+  },
+  "click": {
+    "subtitle": "visualizer.subtitle.click",
+    "sounds": [
+      "visualizer:click.wav"
+    ]
+  },
+  "open": {
+    "subtitle": "visualizer.subtitle.open",
+    "sounds": [
+      "visualizer:open.wav"
+    ]
+  },
+  "close": {
+    "subtitle": "visualizer.subtitle.close",
+    "sounds": [
+      "visualizer:close.wav"
+    ]
+  },
+  "notification": {
+    "subtitle": "visualizer.subtitle.notification",
+    "sounds": [
+      "visualizer:notification.wav"
+    ]
+  }
+}
