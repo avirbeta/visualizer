@@ -4,6 +4,7 @@ import com.visualizer.client.config.VisualizerConfig;
 import com.visualizer.client.notifications.NotificationManager;
 import com.visualizer.client.ui.DrawUtil;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.client.util.math.MatrixStack;
@@ -27,6 +28,10 @@ import java.util.Set;
 public final class HudManager {
 	private static final HudManager INSTANCE = new HudManager();
 	private static final DateTimeFormatter CLOCK = DateTimeFormatter.ofPattern("HH:mm:ss");
+	private static final String VERSION = FabricLoader.getInstance()
+		.getModContainer("visualizer")
+		.map(container -> container.getMetadata().getVersion().getFriendlyString())
+		.orElse("1.1.0");
 	private static final int SAMPLES = 60;
 	private static final int DROP_FPS = 55;
 	private static final int RESTORE_FPS = 62;
@@ -86,7 +91,7 @@ public final class HudManager {
 		elements.add(new HudElement("light", c.hudLightX, c.hudLightY, this::lightText, () -> c.hudLight));
 		elements.add(new SparklineElement("fpsgraph", c.hudFpsGraphX, c.hudFpsGraphY, () -> fpsSamples));
 		elements.add(new HudElement("watermark", c.hudWatermarkX, c.hudWatermarkY,
-			() -> "Visualizer v1.0.0", () -> c.hudWatermark));
+			() -> "Visualizer v" + VERSION, () -> c.hudWatermark));
 	}
 
 	public void saveToConfig() {

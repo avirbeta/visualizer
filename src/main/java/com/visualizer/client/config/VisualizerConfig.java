@@ -12,6 +12,34 @@ public final class VisualizerConfig {
 
 	public static void set(VisualizerConfig config) {
 		INSTANCE = config != null ? config : new VisualizerConfig();
+		INSTANCE.sanitize();
+	}
+
+	/** Защита от битых/огромных значений в visualizer.json. */
+	public void sanitize() {
+		if (theme == null || theme.isEmpty()) theme = "dark";
+		if (accent == null || accent.isEmpty()) accent = "emerald";
+		transparency = clamp(transparency, 0.2F, 1.0F);
+		uiScale = clamp(uiScale, 0.5F, 2.0F);
+		roundedCorners = clamp(roundedCorners, 0.0F, 30.0F);
+		animationSpeed = clamp(animationSpeed, 0.1F, 3.0F);
+		masterUiVolume = clamp(masterUiVolume, 0.0F, 1.0F);
+		hoverVolume = clamp(hoverVolume, 0.0F, 1.0F);
+		clickVolume = clamp(clickVolume, 0.0F, 1.0F);
+		keyOpenVisualizer = key(keyOpenVisualizer);
+		keyToggleHud = key(keyToggleHud);
+		keyToggleHudEditor = key(keyToggleHudEditor);
+		keyToggleCompact = key(keyToggleCompact);
+		keyOpenSettings = key(keyOpenSettings);
+	}
+
+	private static float clamp(float value, float min, float max) {
+		if (Float.isNaN(value)) return min;
+		return value < min ? min : (value > max ? max : value);
+	}
+
+	private static int key(int value) {
+		return (value < -1 || value > 349) ? -1 : value;
 	}
 
 	// Appearance
@@ -106,8 +134,8 @@ public final class VisualizerConfig {
 
 	// Keybinds (GLFW key codes; -1 = unbound)
 	public int keyOpenVisualizer = 344;     // RIGHT_SHIFT
-	public int keyToggleHud = 291;          // F10
-	public int keyToggleHudEditor = 292;    // F11
+	public int keyToggleHud = 298;          // F9
+	public int keyToggleHudEditor = 296;    // F7
 	public int keyToggleCompact = 67;       // C
 	public int keyOpenSettings = 345;       // RIGHT_CONTROL
 

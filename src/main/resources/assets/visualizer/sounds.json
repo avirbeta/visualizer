@@ -2,31 +2,31 @@
   "hover": {
     "subtitle": "visualizer.subtitle.hover",
     "sounds": [
-      "visualizer:hover.wav"
+      "visualizer:hover"
     ]
   },
   "click": {
     "subtitle": "visualizer.subtitle.click",
     "sounds": [
-      "visualizer:click.wav"
+      "visualizer:click"
     ]
   },
   "open": {
     "subtitle": "visualizer.subtitle.open",
     "sounds": [
-      "visualizer:open.wav"
+      "visualizer:open"
     ]
   },
   "close": {
     "subtitle": "visualizer.subtitle.close",
     "sounds": [
-      "visualizer:close.wav"
+      "visualizer:close"
     ]
   },
   "notification": {
     "subtitle": "visualizer.subtitle.notification",
     "sounds": [
-      "visualizer:notification.wav"
+      "visualizer:notification"
     ]
   }
 }

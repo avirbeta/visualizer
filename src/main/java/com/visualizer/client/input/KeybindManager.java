@@ -134,6 +134,9 @@ public final class KeybindManager {
 		if (key < 0) return "None";
 		String name = GLFW.glfwGetKeyName(key, 0);
 		if (name != null) return name.toUpperCase();
+		if (key >= GLFW.GLFW_KEY_F1 && key <= GLFW.GLFW_KEY_F12) {
+			return "F" + (key - GLFW.GLFW_KEY_F1 + 1);
+		}
 		switch (key) {
 			case GLFW.GLFW_KEY_RIGHT_SHIFT: return "RSHIFT";
 			case GLFW.GLFW_KEY_LEFT_SHIFT: return "LSHIFT";
